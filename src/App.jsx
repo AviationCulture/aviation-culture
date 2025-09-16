@@ -87,7 +87,7 @@ function App() {
             <div className="flex items-center space-x-2 rtl:space-x-reverse">
               <Plane className="h-8 w-8 text-aviation-primary" />
 <a href="#" className="flex items-center space-x-2">
-    <img src="/images/logo.png" alt="شعار ثقافة الطيران" className="h-8" />
+    <img src="/images/logo.png" alt="شعار ثقافة الطيران" className="h-12" />
     {/* <span className="text-2xl font-bold gradient-text">ثقافة الطيران</span> */}
 </a>            </div>
 
