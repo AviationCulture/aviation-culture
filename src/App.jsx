@@ -94,6 +94,7 @@ function App() {
             <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
               <a href="#home" className="text-aviation-text hover:text-aviation-primary transition-colors">الرئيسية</a>
               <a href="#articles" className="text-aviation-text hover:text-aviation-primary transition-colors">المقالات</a>
+              <a href="#articles" className="text-aviation-text hover:text-aviation-primary transition-colors">إنفوجرافيك</a>
               <a href="#categories" className="text-aviation-text hover:text-aviation-primary transition-colors">الأقسام</a>
               <a href="#about" className="text-aviation-text hover:text-aviation-primary transition-colors">عن الموقع</a>
               <a href="#contact" className="text-aviation-text hover:text-aviation-primary transition-colors">تواصل معنا</a>
