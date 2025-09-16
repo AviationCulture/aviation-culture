@@ -86,8 +86,10 @@ function App() {
             {/* الشعار */}
             <div className="flex items-center space-x-2 rtl:space-x-reverse">
               <Plane className="h-8 w-8 text-aviation-primary" />
-              <span className="text-xl font-bold gradient-text">ثقافة الطيران</span>
-            </div>
+<a href="#" className="flex items-center space-x-2">
+    <img src="/images/logo.png" alt="شعار ثقافة الطيران" className="h-8" />
+    {/* <span className="text-2xl font-bold gradient-text">ثقافة الطيران</span> */}
+</a>            </div>
 
             {/* القائمة الرئيسية - سطح المكتب */}
             <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
