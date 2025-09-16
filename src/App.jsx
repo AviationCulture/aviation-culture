@@ -138,7 +138,6 @@ function App() {
             </div>
           )}
         </div>
-      </nav>
 
       {/* القسم الرئيسي */}
       <section id="home" className="hero-section flex items-center justify-center">
