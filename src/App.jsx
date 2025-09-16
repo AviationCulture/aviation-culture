@@ -25,80 +25,80 @@ import rocket from './assets/rocket.jpg'
 import spaceLaunch from './assets/space-launch.jpg'
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showScrollTop, setShowScrollTop] = useState(false)
-
-  // التحكم في إظهار زر العودة للأعلى
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const featuredArticles = [
-    {
-      id: 1,
-      title: "تاريخ الطيران: من الأحلام إلى الواقع",
-      description: "رحلة عبر تاريخ الطيران من محاولات الإنسان الأولى للطيران حتى الطائرات الحديثة",
-      image: militaryPlanes,
-      category: "تاريخ",
-      date: "15 يناير 2024",
-      readTime: "8 دقائق"
-    },
-    {
-      id: 2,
-      title: "استكشاف الفضاء: المستقبل بين النجوم",
-      description: "نظرة على أحدث التطورات في استكشاف الفضاء والمهام المستقبلية للكواكب الأخرى",
-      image: rocket,
-      category: "فضاء",
-      date: "12 يناير 2024",
-      readTime: "10 دقائق"
-    },
-    {
-      id: 3,
-      title: "تقنيات الطيران الحديثة",
-      description: "التقنيات المتطورة التي تشكل مستقبل صناعة الطيران والنقل الجوي",
-      image: spaceLaunch,
-      category: "تقنية",
-      date: "10 يناير 2024",
-      readTime: "6 دقائق"
-    }
-  ]
-
-  const categories = [
-    { name: "تاريخ الطيران", icon: Plane, count: 25 },
-    { name: "استكشاف الفضاء", icon: Rocket, count: 18 },
-    { name: "تقنيات حديثة", icon: Globe, count: 32 },
-  ]
+  function App() {
+  const [isInfographicDropdownOpen, setIsInfographicDropdownOpen] = useState(false);
+  const [isLiteratureDropdownOpen, setIsLiteratureDropdownOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* شريط التنقل */}
-      <nav className="fixed top-0 left-0 right-0 z-50 navbar-blur border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* الشعار */}
-            <div className="flex items-center space-x-2 rtl:space-x-reverse">
-<a href="#" className="flex items-center space-x-2">
-    <img src="/images/logo.png" alt="شعار ثقافة الطيران" className="h-14" />
-    {/* <span className="text-2xl font-bold gradient-text">ثقافة الطيران</span> */}
-</a>            </div>
+    <div className="min-h-screen bg-aviation-light font-cairo">
+      {/* Navbar Section */}
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 shadow-md navbar-blur">
+        <div className="container mx-auto flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center space-x-2 rtl:space-x-reverse">
+            <img src="/images/logo.png" alt="شعار ثقافة الطيران" className="h-12" /> {/* تأكد من مسار الشعار وحجمه */}
+            {/* <span className="text-2xl font-bold gradient-text">ثقافة الطيران</span> */}
+          </a>
 
-            {/* القائمة الرئيسية - سطح المكتب */}
-            <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-              <a href="#home" className="text-aviation-text hover:text-aviation-primary transition-colors">الرئيسية</a>
-              <a href="#articles" className="text-aviation-text hover:text-aviation-primary transition-colors">المقالات</a>
-              <a href="#articles" className="text-aviation-text hover:text-aviation-primary transition-colors">إنفوجرافيك</a>
-              <a href="#categories" className="text-aviation-text hover:text-aviation-primary transition-colors">الأقسام</a>
-              <a href="#about" className="text-aviation-text hover:text-aviation-primary transition-colors">عن الموقع</a>
-              <a href="#contact" className="text-aviation-text hover:text-aviation-primary transition-colors">تواصل معنا</a>
+          {/* Navigation Links */}
+          <div className="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="#home" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">الرئيسية</a>
+            <a href="#articles" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">المقالات</a>
+
+            {/* Infographic Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsInfographicDropdownOpen(!isInfographicDropdownOpen)}
+                className="text-aviation-text hover:text-aviation-primary transition-colors duration-300 focus:outline-none flex items-center"
+              >
+                إنفوجرافيك
+                <svg
+                  className={`w-4 h-4 mr-1 rtl:ml-1 transform ${isInfographicDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-transform duration-300`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              {isInfographicDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                  <a href="#infographic-airports" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">مطارات</a>
+                  <a href="#infographic-media" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">إعلام</a>
+                  <a href="#infographic-planes" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">طائرات</a>
+                  <a href="#infographic-achievements" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">إنجازات</a>
+                </div>
+               )}
             </div>
+
+            <a href="#aviation-info" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">معلومة طيران</a>
+            <a href="#plane-story" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">حكاية طائرة</a>
+            <a href="#aviation-personalities" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">شخصيات طيران</a>
+
+            {/* Aviation and Literature Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLiteratureDropdownOpen(!isLiteratureDropdownOpen)}
+                className="text-aviation-text hover:text-aviation-primary transition-colors duration-300 focus:outline-none flex items-center"
+              >
+                الطيران والأدب
+                <svg
+                  className={`w-4 h-4 mr-1 rtl:ml-1 transform ${isLiteratureDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-transform duration-300`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              {isLiteratureDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                  <a href="#literature-books" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">الكتب</a>
+                  <a href="#literature-cinema" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">السينما</a>
+                </div>
+               )}
+            </div>
+
+            <a href="#travel-tip" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">نصيحة سفر</a>
+          </div>
+        </div>
+      </nav>
 
             {/* البحث وزر القائمة */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
