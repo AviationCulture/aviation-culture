@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
@@ -98,7 +98,6 @@ function App() {
             <a href="#travel-tip" className="text-aviation-text hover:text-aviation-primary transition-colors duration-300">نصيحة سفر</a>
           </div>
         </div>
-      </nav>
 
             {/* البحث وزر القائمة */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
